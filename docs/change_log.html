@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="shortcut icon" href="dlib-icon.ico"><meta name="verify-v1" content="02MiiaFNVzS5/u0eQhsy3/knioFHsia1X3DXRpHkE6I="><meta name="google-site-verification" content="DGSSJMKDomaDaDTIRJ8jDkv0YMx9Cz7OESbXHjjr6Jw"><title>dlib C++ Library
+   - Change Log</title><script language="JavaScript">
+
+// ---------------------------------------------
+// --- Name:    Easy DHTML Treeview           --
+// --- Author:  D.D. de Kerf                  --
+// --- Version: 0.2          Date: 13-6-2001  --
+// ---------------------------------------------
+function Toggle(node)
+{
+   // Unfold the branch if it isn't visible
+   var next_node = node.nextSibling;
+   if (next_node.style.display == 'none')
+   {
+      // Change the image (if there is an image)
+      if (node.childNodes.length > 0)
+      {
+         if (node.childNodes.length > 0)
+         { 
+            if (node.childNodes.item(0).nodeName == "IMG")
+            {
+               node.childNodes.item(0).src = "minus.gif";
+            }
+         }
+      }
+
+      next_node.style.display = 'block';
+   }
+   // Collapse the branch if it IS visible
+   else
+   {
+      // Change the image (if there is an image)
+      if (node.childNodes.length > 0)
+      {
+         if (node.childNodes.length > 0)
+         { 
+            if (node.childNodes.item(0).nodeName == "IMG")
+            {
+               node.childNodes.item(0).src = "plus.gif";
+            }
+         }
+      }
+
+      next_node.style.display = 'none';
+   }
+
+}
+function BigToggle(node)
+{
+   // Unfold the branch if it isn't visible
+   var next_node = node.nextSibling;
+   if (next_node.style.display == 'none')
+   {
+      // Change the image (if there is an image)
+      if (node.childNodes.length > 0)
+      {
+         if (node.childNodes.length > 0)
+         { 
+            if (node.childNodes.item(0).nodeName == "IMG")
+            {
+               node.childNodes.item(0).src = "bigminus.gif";
+            }
+         }
+      }
+
+      next_node.style.display = 'block';
+   }
+   // Collapse the branch if it IS visible
+   else
+   {
+      // Change the image (if there is an image)
+      if (node.childNodes.length > 0)
+      {
+         if (node.childNodes.length > 0)
+         { 
+            if (node.childNodes.item(0).nodeName == "IMG")
+            {
+               node.childNodes.item(0).src = "bigplus.gif";
+            }
+         }
+      }
+
+      next_node.style.display = 'none';
+   }
+
+}
+</script><style type="text/css">
+   body {margin:0px;}
+   pre {margin:0px;}
+
+   ul.tree  li { list-style: none;  margin-left:10px;} 
+   ul.tree  { margin:0px; padding:0px; margin-left:5px; font-size:0.95em; }
+   ul.tree  li ul { margin-left:10px; padding:0px; }
+
+   li#term { list-style: none; }
+
+   div#component {
+      background-color:white; 
+      border: 2px solid rgb(102,102,102); 
+      text-align:left;
+      margin-top: 1.5em;
+      padding: 0.7em;
+   }
+
+   div#question {
+      background-color:white; 
+      border: 2px solid rgb(102,102,102); 
+      text-align:left;
+      margin-top: 1.5em;
+      margin-bottom: 90%;
+      padding: 0.7em;
+   }
+
+   div#function {
+      background-color:white; 
+      border: 2px solid rgb(102,102,255); 
+      text-align:left;
+      margin-top: 0.3em;
+      padding: 0.3em;
+   }
+
+   div#class {
+      background-color:white; 
+      border: 2px solid rgb(255,102,102); 
+      text-align:left;
+      margin-top: 0.3em;
+      padding: 0.3em;
+   }
+
+   div#extension {
+      background-color:#FDFDFD; 
+      border: 1px solid rgb(102,102,102); 
+      text-align:left;
+      margin-top: 1.0em;
+      padding: 0.7em;
+   }
+
+   div#logb {
+      text-align:left;
+      padding: 0.0em;
+      float: left;
+      background-color:#c0c0c0; 
+      border: double ; 
+      margin: 0.5em;
+   }
+
+   div#name {
+      float: left;
+   }
+   div#line1 {
+      float:left;
+      width:100%;
+      background-color:#dfdfdf; 
+   }
+   div#line2 {
+      float:left;
+      width:100%;
+   }
+   div#inc {
+      float: right;
+   }
+
+
+   .code_box
+   {
+      color: black;
+      margin: 1em 0.25in;
+      padding: 0.5em;
+      background: rgb(240,240,240);
+      border-top: black dotted 1px;
+      border-left: black dotted 1px;
+      border-right: black solid 2px;
+      border-bottom: black solid 2px;
+   }
+
+
+
+   .bdotted {border-bottom: 1px dotted}
+   .bdashed {border-bottom: 1px dashed}
+   .bsolid {border-bottom: 1px solid}
+   .bdouble {border-bottom: 1px double}
+   .bgroove {border-bottom: 1px groove}
+   .bridge {border-bottom: 1px ridge}
+   .binset {border-bottom: 1px inset}
+   .boutset {border-bottom: 1px outset}
+
+   div#row1 {
+      background-color:#dfdfdf; 
+   }
+   div#row2 {
+      background-color:#f2f2f2; 
+   }
+
+   div#typedefs {
+      margin-left: 1.5em;
+      margin-top: 0.2em;
+      border: 1px dotted;
+      width: 52em;
+   }
+
+   div#tdn {
+      width: 10em;
+   }
+
+   .fullhr {
+      clear: both;
+   }
+
+   body {
+      text-align: center;
+   }
+
+   div#entire_page {
+      width:62.5em;  
+      text-align: left;
+      margin-top: 0.4em;
+      margin-left: auto;
+      margin-right: auto;
+   }
+</style></head><body bgcolor="#EDF3EE"><a name="top"></a><div id="entire_page"><a href="http://dlib.net"><img src="dlib-logo.png"></a><table bgcolor="white" height="100%" bordercolor="#EDF3EE" CELLSPACING="0" CELLPADDING="10" style="border:0px;margin-top:2px"><tr height="100%"><td BGCOLOR="#F5F5F5" style="padding:7px; border: 1px solid rgb(102,102,102);" VALIGN="TOP" height="100%"><br><table WIDTH="145" height="100%"><tr><td VALIGN="TOP"><b>The Library</b><ul class="tree"><li><a href="algorithms.html">Algorithms</a></li><li><a href="api.html">API Wrappers</a></li><li><a href="bayes.html">Bayesian Nets</a></li><li><a href="compression.html">Compression</a></li><li><a href="containers.html">Containers</a></li><li><a href="graph_tools.html">Graph Tools</a></li><li><a href="imaging.html">Image Processing</a></li><li><a href="linear_algebra.html">Linear Algebra</a></li><li><a href="ml.html">Machine Learning</a></li><li><a href="metaprogramming.html">Metaprogramming</a></li><li><a href="other.html">Miscellaneous</a></li><li><a href="network.html">Networking</a></li><li><a href="optimization.html">Optimization</a></li><li><a href="parsing.html">Parsing</a></li></ul><br><b>Help/Info</b><ul class="tree"><li><a onclick="Toggle(this)" style="cursor: pointer;margin-left:-9px"><img src="plus.gif"><font color="green"><u>Examples: C++</u></font></a><ul style="display:none;"><li><a href="assignment_learning_ex.cpp.html">Assignment_Learning</a></li><li><a href="file_to_code_ex.cpp.html">Base64_Encoder</a></li><li><a href="bayes_net_ex.cpp.html">Bayesian_Network</a></li><li><a href="bayes_net_from_disk_ex.cpp.html">Bayesian_Network_From_Disk</a></li><li><a href="bayes_net_gui_ex.cpp.html">Bayesian_Network_GUI</a></li><li><a href="bridge_ex.cpp.html">Bridge</a></li><li><a href="bsp_ex.cpp.html">BSP</a></li><li><a href="compress_stream_ex.cpp.html#_top">Cmd_Line_Parser</a></li><li><a href="compress_stream_ex.cpp.html">Compress_Stream</a></li><li><a href="config_reader_ex.cpp.html">Config_File_Reader</a></li><li><a href="custom_trainer_ex.cpp.html">Custom_Trainers</a></li><li><a href="dir_nav_ex.cpp.html">Directory_Navigation</a></li><li><a href="empirical_kernel_map_ex.cpp.html">Empirical_Kernel_Map</a></li><li><a href="face_detection_ex.cpp.html">Face_Detection</a></li><li><a href="fhog_ex.cpp.html">FHOG_Feature_Extraction</a></li><li><a href="fhog_object_detector_ex.cpp.html">FHOG_Object_Detection</a></li><li><a href="graph_labeling_ex.cpp.html">Graph_Labeling</a></li><li><a href="gui_api_ex.cpp.html">GUI</a></li><li><a href="server_http_ex.cpp.html">HTTP_Server</a></li><li><a href="image_ex.cpp.html">Image</a></li><li><a href="iosockstream_ex.cpp.html">IO Socket Streams</a></li><li><a href="server_iostream_ex.cpp.html">IO Streams Server</a></li><li><a href="kcentroid_ex.cpp.html">Kernel_Centroid</a></li><li><a href="kkmeans_ex.cpp.html">Kernel_K-Means_Clustering</a></li><li><a href="krr_regression_ex.cpp.html">Kernel_Ridge_Regression</a></li><li><a href="krls_filter_ex.cpp.html">Kernel_RLS_Filtering</a></li><li><a href="krls_ex.cpp.html">Kernel_RLS_Regression</a></li><li><a href="krr_classification_ex.cpp.html">KRR_Classification</a></li><li><a href="learning_to_track_ex.cpp.html">Learning_to_Track</a></li><li><a href="linear_manifold_regularizer_ex.cpp.html">Linear_Manifold_Regularizer</a></li><li><a href="logger_ex.cpp.html">Logger</a></li><li><a href="logger_ex_2.cpp.html">Logger_Advanced</a></li><li><a href="logger_custom_output_ex.cpp.html">Logger_Custom_Output</a></li><li><a href="matrix_ex.cpp.html">Matrix</a></li><li><a href="matrix_expressions_ex.cpp.html">Matrix_Expressions</a></li><li><a href="member_function_pointer_ex.cpp.html">Member_Function_Pointer</a></li><li><a href="model_selection_ex.cpp.html">Model_Selection</a></li><li><a href="multiclass_classification_ex.cpp.html">Multiclass_Classification</a></li><li><a href="multithreaded_object_ex.cpp.html">Multithreaded_Object</a></li><li><a href="mlp_ex.cpp.html">Neural_Network</a></li><li><a href="least_squares_ex.cpp.html">Non-Linear Least Squares</a></li><li><a href="integrate_function_adapt_simp_ex.cpp.html">Numerical_Integration</a></li><li><a href="object_detector_ex.cpp.html">Object_Detector</a></li><li><a href="object_detector_advanced_ex.cpp.html">Object_Detector_Advanced</a></li><li><a href="one_class_classifiers_ex.cpp.html">One_Class_Classifiers</a></li><li><a href="svm_pegasos_ex.cpp.html">Online_SVM</a></li><li><a href="optimization_ex.cpp.html">Optimization</a></li><li><a href="parallel_for_ex.cpp.html">Parallel_For_Loops</a></li><li><a href="pipe_ex.cpp.html">Pipe</a></li><li><a href="pipe_ex_2.cpp.html">Pipe_2</a></li><li><a href="quantum_computing_ex.cpp.html">Quantum_Computing</a></li><li><a href="queue_ex.cpp.html">Queue</a></li><li><a href="rank_features_ex.cpp.html">Rank_Features</a></li><li><a href="rvm_ex.cpp.html">Relevance_Vector_Classification</a></li><li><a href="rvm_regression_ex.cpp.html">Relevance_Vector_Regression</a></li><li><a href="running_stats_ex.cpp.html">Running_Stats</a></li><li><a href="sequence_labeler_ex.cpp.html">Sequence_Labeling</a></li><li><a href="sequence_segmenter_ex.cpp.html">Sequence_Segmentation</a></li><li><a href="sockets_ex.cpp.html">Sockets</a></li><li><a href="sockstreambuf_ex.cpp.html">Sockstreambuf</a></li><li><a href="svm_sparse_ex.cpp.html">Sparse_Vectors</a></li><li><a href="std_allocator_ex.cpp.html">Std_C++_Allocator</a></li><li><a href="svm_struct_ex.cpp.html">Structural_Support_Vector_Machines</a></li><li><a href="svm_ex.cpp.html">Support_Vector_Machine</a></li><li><a href="svr_ex.cpp.html">Support_Vector_Regression</a></li><li><a href="surf_ex.cpp.html">SURF</a></li><li><a href="svm_rank_ex.cpp.html">SVM-Rank</a></li><li><a href="threaded_object_ex.cpp.html">Threaded_Object</a></li><li><a href="threads_ex.cpp.html">Threads</a></li><li><a href="thread_function_ex.cpp.html">Thread_Function</a></li><li><a href="thread_pool_ex.cpp.html">Thread_Pool</a></li><li><a href="timer_ex.cpp.html">Timer</a></li><li><a href="train_object_detector.cpp.html">Train_Object_Detector</a></li><li><a href="using_custom_kernels_ex.cpp.html">Using_Custom_Kernels</a></li><li><a href="xml_parser_ex.cpp.html">XML_Parser</a></li></ul></li><li><a onclick="Toggle(this)" style="cursor: pointer;margin-left:-9px"><img src="plus.gif"><font color="green"><u>Examples: Python</u></font></a><ul style="display:none;"><li><a href="face_detector.py.html">Face_Detector</a></li><li><a href="max_cost_assignment.py.html">Linear_Assignment_Problems</a></li><li><a href="sequence_segmenter.py.html">Sequence_Segmenter</a></li><li><a href="svm_struct.py.html">Structural_Support_Vector_Machines</a></li><li><a href="svm_rank.py.html">SVM-Rank</a></li><li><a href="train_object_detector.py.html">Train_Object_Detector</a></li></ul></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html">Home</a></li><li><a href="compile.html">How to compile</a></li><li><a href="howto_contribute.html">How to contribute</a></li><li><a href="term_index.html">Index</a></li><li><a href="intro.html">Introduction</a></li><li><a href="license.html">License</a></li><li><a href="python/index.html">Python API</a></li><li><a href="books.html">Suggested Books</a></li></ul><br><b>Current Release</b><ul class="tree"><li><a href="change_log.html">Change Log</a></li><li><a href="release_notes.html">Release Notes</a></li><li>Version: 18.8</li></ul><br></td><td width="1"></td></tr><tr><td valign="bottom"><br><br><br><br><br><br><br><br><br>
+      Last Modified:<br>Jun 02, 2014<br><br></td></tr></table></td><td VALIGN="TOP" width="100%" style="border: 1px solid rgb(102,102,102);"><center><h1>Change Log</h1></center><u>Revision</u>: 14f7beeeac9f8f8f<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 26, 2014
+         (15:25:46 UTC)
+      <br><p style="margin:0.4em">Added missing requires clauses</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/image_processing/scan_fhog_pyramid_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 612653f5dbcf1e22<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 26, 2014
+         (14:56:01 UTC)
+      <br><p style="margin:0.4em">Fixed bug in evaluate_detectors() and added unit tests.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/image_processing/scan_fhog_pyramid.h</div><div id="row1">dlib/test/object_detector.cpp</div></div><hr class="fullhr"><u>Revision</u>: 6cdb057c61c50b1f<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 26, 2014
+         (14:46:13 UTC)
+      <br><p style="margin:0.4em">Added evaluate_detectors() to make it easy to run a bunch of HOG detectors
+efficiently, even when their window sizes differ.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/image_processing/scan_fhog_pyramid.h</div><div id="row1">dlib/image_processing/scan_fhog_pyramid_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: f8d9a56a3deb6fa9<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 26, 2014
+         (14:22:55 UTC)
+      <br><p style="margin:0.4em">Refactored a bit of the object_detector interface.  Also fixed a bug in the
+non-max suppression code that I introduced a few commits ago.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/image_processing/object_detector.h</div><div id="row1">dlib/image_processing/object_detector_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 390a6d2230adf8bf<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 24, 2014
+         (08:27:20 UTC)
+      <br><p style="margin:0.4em">Improved non-max-suppression for detectors with multiple sub-detectors packed
+into them.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/image_processing/object_detector.h</div></div><hr class="fullhr"><u>Revision</u>: 7bf28d5225404480<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 23, 2014
+         (18:03:55 UTC)
+      <br><p style="margin:0.4em">Made set_prior() work with sparse vectors.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_c_linear_trainer.h</div><div id="row1">dlib/test/oca.cpp</div><div id="row2">dlib/test/svm_c_linear.cpp</div></div><hr class="fullhr"><u>Revision</u>: 61a6ece07460ff1d<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 23, 2014
+         (17:53:51 UTC)
+      <br><p style="margin:0.4em">Fixed a bug in the prior support related to sparse vector usage.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_multiclass_linear_trainer.h</div></div><hr class="fullhr"><u>Revision</u>: 0dad7eaf84bce19d<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 23, 2014
+         (17:52:01 UTC)
+      <br><p style="margin:0.4em">Relaxed some excessively restrictive requires clauses.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/matrix/matrix_utilities.h</div><div id="row1">dlib/matrix/matrix_utilities_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 42758e94aefa8096<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 23, 2014
+         (15:07:32 UTC)
+      <br><p style="margin:0.4em">Fixed set_prior() so it works with sparse vectors in addition to dense vectors.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_rank_trainer.h</div><div id="row1">dlib/test/ranking.cpp</div></div><hr class="fullhr"><u>Revision</u>: fde18d33b0c142a4<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 23, 2014
+         (14:35:49 UTC)
+      <br><p style="margin:0.4em">Added unit tests for the svm_multiclass_linear with sparse priors</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/test/svm_multiclass_linear.cpp</div></div><hr class="fullhr"><u>Revision</u>: ceeb863b3b2e617e<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 22, 2014
+         (17:34:35 UTC)
+      <br><p style="margin:0.4em">Fixed compile time bug</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_multiclass_linear_trainer.h</div></div><hr class="fullhr"><u>Revision</u>: 5061fdd1b431b4fe<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 22, 2014
+         (16:19:02 UTC)
+      <br><p style="margin:0.4em">Added another test</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/test/matrix.cpp</div></div><hr class="fullhr"><u>Revision</u>: a72e4ac8c26939d8<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 22, 2014
+         (16:17:21 UTC)
+      <br><p style="margin:0.4em">Made it so you can write statements like mymat = m = 0;
+That is, chain the = operator when using a literal assignment on
+matrix objects.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/matrix/matrix.h</div><div id="row1">dlib/test/matrix.cpp</div></div><hr class="fullhr"><u>Revision</u>: 30b951b666a2a9bb<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 21, 2014
+         (17:56:04 UTC)
+      <br><p style="margin:0.4em">Added unit test for the new dot() overloads.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/test/sparse_vector.cpp</div></div><hr class="fullhr"><u>Revision</u>: 6327c26242e3b516<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 21, 2014
+         (17:48:04 UTC)
+      <br><p style="margin:0.4em">Added unit tests for new serialization syntax.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/test/serialize.cpp</div></div><hr class="fullhr"><u>Revision</u>: 66ebdb63b96c8300<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 21, 2014
+         (16:52:57 UTC)
+      <br><p style="margin:0.4em">Made the requires checking for array::set_size() always stay on since it is not
+going to be performance critical and is a common user error.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/array/array_kernel.h</div></div><hr class="fullhr"><u>Revision</u>: e85dcb870c7b7fe4<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 21, 2014
+         (16:51:11 UTC)
+      <br><p style="margin:0.4em">Fixed incorrect requires clause on the cross_validate_trainer() and
+cross_validate_trainer_threaded() routines.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm.h</div><div id="row1">dlib/svm/svm_abstract.h</div><div id="row2">dlib/svm/svm_threaded.h</div><div id="row1">dlib/svm/svm_threaded_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: b6a4c87914fdf8bf<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 21, 2014
+         (-02:19:57 UTC)
+      <br><p style="margin:0.4em">Changed code so that the proper error code is always returned even in the event
+that closesocket() fails.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/sockets/sockets_kernel_1.cpp</div></div><hr class="fullhr"><u>Revision</u>: d862afecf86457c5<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 20, 2014
+         (17:12:34 UTC)
+      <br><p style="margin:0.4em">Fixed spelling error in comment.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/sockets/sockets_kernel_2.cpp</div></div><hr class="fullhr"><u>Revision</u>: e3f06fb6e064b842<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 18, 2014
+         (10:37:04 UTC)
+      <br><p style="margin:0.4em">Changed the assign() function so that it no longer removes zeros from
+dense vectors when assigning them to sparse vectors.  Also updated dot()
+so that it is much faster when working with "sparse vectors" that are
+the product of assigning a dense vector to a sparse vector.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/sparse_vector.h</div></div><hr class="fullhr"><u>Revision</u>: ecbd1ac86cafb2b3<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 16, 2014
+         (15:36:01 UTC)
+      <br><p style="margin:0.4em">Fixed a potential divide by zero in draw_fhog()</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/image_transforms/fhog.h</div></div><hr class="fullhr"><u>Revision</u>: dd0288c699d682b7<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 08, 2014
+         (16:40:22 UTC)
+      <br><p style="margin:0.4em">Added a simplified operator &lt;&lt; and &gt;&gt; syntax for serializing to and from files.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/serialize.h</div></div><hr class="fullhr"><u>Revision</u>: b00a471b53bfde67<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (18:09:59 UTC)
+      <br><p style="margin:0.4em">Added the option to set a prior to svm_rank_trainer.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_rank_trainer.h</div><div id="row1">dlib/svm/svm_rank_trainer_abstract.h</div><div id="row2">dlib/test/ranking.cpp</div></div><hr class="fullhr"><u>Revision</u>: e65a49a1b9ab753a<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (17:32:50 UTC)
+      <br><p style="margin:0.4em">Added missing assert</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_c_linear_trainer.h</div></div><hr class="fullhr"><u>Revision</u>: 2badb5f6899e93cc<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (17:32:38 UTC)
+      <br><p style="margin:0.4em">Fixed grammar</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_c_linear_trainer_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: c5dd0ebceb841784<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (16:53:48 UTC)
+      <br><p style="margin:0.4em">Fixed compiler errors in unit tests</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/test/svm_struct.cpp</div></div><hr class="fullhr"><u>Revision</u>: 65695ed6be50c7c1<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (16:08:44 UTC)
+      <br><p style="margin:0.4em">Fixed compile time error I just introduced.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_c_linear_trainer.h</div></div><hr class="fullhr"><u>Revision</u>: d0a366cfe4dd89f8<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (16:01:20 UTC)
+      <br><p style="margin:0.4em">Added the ability to set a prior to the svm_c_linear_trainer.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_c_linear_trainer.h</div><div id="row1">dlib/svm/svm_c_linear_trainer_abstract.h</div><div id="row2">dlib/test/svm_c_linear.cpp</div></div><hr class="fullhr"><u>Revision</u>: 7172005a4937851f<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (15:45:57 UTC)
+      <br><p style="margin:0.4em">Added overloads of mat() that convert a single scalar into a matrix.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/matrix/matrix_mat.h</div><div id="row1">dlib/matrix/matrix_mat_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 148793c1763dbad9<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (15:21:58 UTC)
+      <br><p style="margin:0.4em">clarified spec</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_multiclass_linear_trainer_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 4c2b50d19f0cefe1<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 04, 2014
+         (15:14:38 UTC)
+      <br><p style="margin:0.4em">Clarified spec and also slightly improved usability</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_multiclass_linear_trainer.h</div><div id="row1">dlib/svm/svm_multiclass_linear_trainer_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 1db294f4e69272a4<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: May 01, 2014
+         (16:47:07 UTC)
+      <br><p style="margin:0.4em">Added the ability to set a previously trained function as a prior to the
+svm_multiclass_linear_trainer.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_multiclass_linear_trainer.h</div><div id="row1">dlib/svm/svm_multiclass_linear_trainer_abstract.h</div><div id="row2">dlib/test/svm_multiclass_linear.cpp</div></div><hr class="fullhr"><u>Revision</u>: 0eb450520e893091<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 26, 2014
+         (13:17:22 UTC)
+      <br><p style="margin:0.4em">Just a few minor overloads and usability tweaks to the logger interface.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/logger/logger_kernel_1.h</div><div id="row1">dlib/logger/logger_kernel_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 410e9eb9e5ebcc43<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 26, 2014
+         (11:35:45 UTC)
+      <br><p style="margin:0.4em">Added locally_change_current_dir</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/misc_api.h</div><div id="row1">dlib/misc_api/misc_api_kernel_abstract.h</div></div><div id="logb"><div class="bsolid"><b><font color="blue">Added</font></b></div><div id="row2">dlib/misc_api/misc_api_shared.h</div></div><hr class="fullhr"><u>Revision</u>: c121ed7e04dd6b22<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 26, 2014
+         (09:10:09 UTC)
+      <br><p style="margin:0.4em">Made the ODR rule violation error diagnostic clearer.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/threads/threads_kernel_shared.cpp</div><div id="row1">dlib/threads/threads_kernel_shared.h</div></div><hr class="fullhr"><u>Revision</u>: 9b49cd55cfe898ab<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 26, 2014
+         (08:57:42 UTC)
+      <br><p style="margin:0.4em">Added user settable loss to the structural_track_association_trainer.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/structural_track_association_trainer.h</div><div id="row1">dlib/svm/structural_track_association_trainer_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 47071c701fea6abf<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 23, 2014
+         (16:25:27 UTC)
+      <br><p style="margin:0.4em">Slightly simplified the code</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/structural_svm_problem.h</div></div><hr class="fullhr"><u>Revision</u>: e11ad0889a8cd1af<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 23, 2014
+         (15:41:37 UTC)
+      <br><p style="margin:0.4em">Added operator+= to discriminant_pca.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/statistics/dpca.h</div><div id="row1">dlib/statistics/dpca_abstract.h</div><div id="row2">dlib/test/discriminant_pca.cpp</div></div><hr class="fullhr"><u>Revision</u>: a3f3d9b5e9b86ff7<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 23, 2014
+         (15:19:49 UTC)
+      <br><p style="margin:0.4em">Improve error message generated when calling argument() incorrectly.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/cmd_line_parser/cmd_line_parser_kernel_1.h</div></div><hr class="fullhr"><u>Revision</u>: c72a3f001d37a958<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 23, 2014
+         (15:09:24 UTC)
+      <br><p style="margin:0.4em">fixed spelling errors</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/interfaces/cmd_line_parser_option.h</div></div><hr class="fullhr"><u>Revision</u>: 9e33b4c369c6d6d8<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 22, 2014
+         (17:18:31 UTC)
+      <br><p style="margin:0.4em">Added user settable loss to the association trainer</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/structural_assignment_trainer.h</div><div id="row1">dlib/svm/structural_assignment_trainer_abstract.h</div><div id="row2">dlib/svm/structural_svm_assignment_problem.h</div><div id="row1">dlib/svm/structural_svm_assignment_problem_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 77f4321d7b5f88cc<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 22, 2014
+         (16:18:58 UTC)
+      <br><p style="margin:0.4em">fixed typo in spec</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/svm_rank_trainer_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 3308807ea377af67<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 22, 2014
+         (16:52:26 UTC)
+      <br><p style="margin:0.4em">Added a #define for _NO_W32_PSEUDO_MODIFIERS so that windows.h won't #define IN or OUT</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/windows_magic.h</div></div><hr class="fullhr"><u>Revision</u>: 3c097f560513b809<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 22, 2014
+         (16:13:47 UTC)
+      <br><p style="margin:0.4em">merged changes and updated abstract file.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/rvm.h</div><div id="row1">dlib/svm/rvm_abstract.h</div><div id="row2">examples/rvm_ex.cpp</div></div><hr class="fullhr"><u>Revision</u>: b8e8de0dc71bdf90<br><u>Author</u>: <a href="mailto:csaba.kertesz@gmail.com">Csaba Kertesz</a><br><u>Date</u>: Mar 16, 2014
+         (13:19:19 UTC)
+      <br><p style="margin:0.4em">Add maximal iterations option for relevance vector machine trainer</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/rvm.h</div><div id="row1">examples/rvm_ex.cpp</div></div><hr class="fullhr"><u>Revision</u>: 56d6aae8d8c25882<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 21, 2014
+         (06:04:54 UTC)
+      <br><p style="margin:0.4em">fixed typo in spec</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/disjoint_subsets/disjoint_subsets_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 50dccf05ad39bae4<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 16, 2014
+         (17:27:11 UTC)
+      <br><p style="margin:0.4em">A minor change to avoid a compiler warning.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/image_transforms/draw.h</div></div><hr class="fullhr"><u>Revision</u>: 5073ec1b7c924c83<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 16, 2014
+         (15:54:55 UTC)
+      <br><p style="margin:0.4em">Added split_on_first() and split_on_last().</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/string/string.h</div><div id="row1">dlib/string/string_abstract.h</div><div id="row2">dlib/test/string.cpp</div></div><hr class="fullhr"><u>Revision</u>: 434de92b54f370e2<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 13, 2014
+         (07:10:41 UTC)
+      <br><p style="margin:0.4em">clarified spec</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/logger/logger_kernel_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 22446ff38555c1cf<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 10, 2014
+         (15:43:08 UTC)
+      <br><p style="margin:0.4em">Made the point transformation objects default constructable and also
+serializable.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/geometry/point_transforms.h</div><div id="row1">dlib/geometry/point_transforms_abstract.h</div><div id="row2">dlib/test/geometry.cpp</div></div><hr class="fullhr"><u>Revision</u>: bdc9ee65b87360a6<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 05, 2014
+         (14:56:50 UTC)
+      <br><p style="margin:0.4em">Made the loss calculation more explicit.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/svm/structural_svm_assignment_problem.h</div></div><hr class="fullhr"><u>Revision</u>: f558affe6d7c7af8<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Apr 02, 2014
+         (15:49:24 UTC)
+      <br><p style="margin:0.4em">fixed a typo in the spec</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/statistics/vector_normalizer_frobmetric_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: 4cd480e714851553<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Mar 27, 2014
+         (16:32:26 UTC)
+      <br><p style="margin:0.4em">Changed oca code so the prior vector can be the same object as the w vector.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/optimization/optimization_oca.h</div></div><hr class="fullhr"><u>Revision</u>: be293a7c2f0d7cb0<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Mar 18, 2014
+         (15:18:04 UTC)
+      <br><p style="margin:0.4em">A minor change to avoid a compiler error from clang 3.4 on Mac OS X 10.9.
+Thanks to Martin Fergie for reporting this problem.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/sockets/sockets_kernel_1.h</div><div id="row1">dlib/sockets/sockets_kernel_2.h</div></div><hr class="fullhr"><u>Revision</u>: 61c6f9f510aae090<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Mar 17, 2014
+         (14:24:41 UTC)
+      <br><p style="margin:0.4em">Fixed a bug in the backtracking_line_search() function pointed out by
+Ping-Chang Shih.  The function ignored the max_iter parameter.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/optimization/optimization_line_search.h</div></div><hr class="fullhr"><u>Revision</u>: d26119e550debf5b<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Mar 17, 2014
+         (14:17:26 UTC)
+      <br><p style="margin:0.4em">Fixed a bug pointed out by Daniel Girardeau-Montaut.  The covariance() function
+didn't work on non-double valued matrices.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/matrix/matrix_utilities.h</div></div><hr class="fullhr"><u>Revision</u>: 64a8e64d050b1c77<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Mar 17, 2014
+         (14:01:59 UTC)
+      <br><p style="margin:0.4em">Made frobmetric_training_sample serializable.</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/statistics/vector_normalizer_frobmetric.h</div><div id="row1">dlib/statistics/vector_normalizer_frobmetric_abstract.h</div></div><hr class="fullhr"><u>Revision</u>: b19967f2c81868a8<br><u>Author</u>: <a href="mailto:davis@dlib.net">Davis King</a><br><u>Date</u>: Mar 17, 2014
+         (14:00:44 UTC)
+      <br><p style="margin:0.4em">Improved speed of reshape_to_column_vector()</p><div id="logb"><div class="bsolid"><b><font color="black">Modified</font></b></div><div id="row2">dlib/matrix/matrix_utilities.h</div><div id="row1">dlib/test/matrix3.cpp</div></div><hr class="fullhr"><br><center><a href="old_change_log.html">Old Change Logs</a></center><br></td></tr></table></div></body></html>
