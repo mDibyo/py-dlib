@@ -27,3 +27,24 @@ cdef extern from "array_kernel.h" namespace "dlib":
         ctypedef array expand_1c_c
         ctypedef array expand_1d
         ctypedef array expand_1d_c
+
+
+        ctypedef T type
+        ctypedef T value_type
+        ctypedef mem_manager mem_manager_type
+
+
+        array()
+        void clear()
+        T& operator[](unsigned long pos)
+        cdef enum:
+            T& operator[](unsigned long pos)
+        void set_size(unsigned long size)
+        cdef enum:
+            unsigned long max_size()
+        void set_max_size(unsigned long max)
+        void swap(array& item)
+        cdef enum:
+            unsigned long size()
+        cdef enum:
+            bool at_start()
