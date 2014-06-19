@@ -35,16 +35,42 @@ cdef extern from "array_kernel.h" namespace "dlib":
 
 
         array()
+
         void clear()
+        
         T& operator[](unsigned long pos)
-        cdef enum:
-            T& operator[](unsigned long pos)
+        
+        @classmethod
+        T& operator[](unsigned long pos)
+        
         void set_size(unsigned long size)
-        cdef enum:
-            unsigned long max_size()
+        
+        @classmethod
+        unsigned long max_size()
+        
         void set_max_size(unsigned long max)
+        
         void swap(array& item)
-        cdef enum:
-            unsigned long size()
-        cdef enum:
-            bool at_start()
+        
+        @classmethod
+        unsined long size()
+        
+        @classmethod:
+        bool at_start()
+        
+        @classmethod
+        void reset()
+        
+        @classmethod
+        bool current_element_valid()
+        
+        @classmethod
+        bool current_element_valid()
+
+        @classmethod
+        bool current_element_valid()
+
+
+        @classmethod
+        bool current_element_valid()
+
