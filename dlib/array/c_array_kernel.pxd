@@ -52,6 +52,7 @@ cdef extern from "array_kernel.h" namespace "dlib":
         
         void swap(array& item)
         
+        # functions from the enumerable interface
         @classmethod
         unsined long size()
         
@@ -65,12 +66,22 @@ cdef extern from "array_kernel.h" namespace "dlib":
         bool current_element_valid()
         
         @classmethod
-        bool current_element_valid()
+        T& element()
+
+        T& element()
 
         @classmethod
-        bool current_element_valid()
+        bool move_next()
 
+        void sort()
+
+        void resize(unsigned long new_size)
 
         @classmethod
-        bool current_element_valid()
+        T& back()
 
+        T& back()
+
+        void pop_back(T& item)
+
+        void push_back(T& item)
