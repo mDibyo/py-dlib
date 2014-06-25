@@ -1,6 +1,6 @@
 # imports and includes
 
-from libcpp.vector cimport vector
+from libcpp.vector cimport vector as std_vec
 
 cdef extern from "../rand.h" namespace dlib:
     cdef cppclass rand:
@@ -19,4 +19,11 @@ cdef extern from "../graph_utils/sample_pair_abstract.h" namespace dlib:
 
 cdef extern from "chinese_whispers.h" namespace dlib:
 
-    unsigned long chinese_whispers(const vector[ordered_sample_pair])
+    unsigned long chinese_whispers(const std_vec[ordered_sample_pair]& edges,
+                                   std_vec[unsigned long]& labels,
+                                   const unsigned long num_iterations,
+                                   rand& rnd)
+    unsigned long chinese_whispers(const std_vec[sample_pair]& edges,
+                                   std_vec[unsigned long]& labels,
+                                   const unsigned long num_iterations,
+                                   rand& rnd)
